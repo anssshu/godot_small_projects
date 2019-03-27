@@ -1,0 +1,3 @@
+current focus.
+
+learn lmms

@@ -1,0 +1,155 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/bg.png" type="Texture" id=1]
+[ext_resource path="res://assets/hill.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://objects/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/platform.png" type="Texture" id=5]
+[ext_resource path="res://assets/fg.png" type="Texture" id=6]
+[ext_resource path="res://assets/tree.png" type="Texture" id=7]
+[ext_resource path="res://assets/grass.png" type="Texture" id=8]
+
+[sub_resource type="LineShape2D" id=1]
+
+[sub_resource type="SegmentShape2D" id=2]
+a = Vector2( 596.498, 364.738 )
+b = Vector2( 784.886, 370.734 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="bg" type="Sprite" parent="ParallaxBackground"]
+modulate = Color( 0.109314, 0.495519, 0.777344, 1 )
+position = Vector2( 507.753, 281.149 )
+scale = Vector2( 1.0133, 0.869884 )
+texture = ExtResource( 1 )
+
+[node name="hill" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 462.158, 341.302 )
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 516, 300 )
+current = true
+script = ExtResource( 3 )
+
+[node name="player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 410.098, 312.704 )
+
+[node name="ground" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 437.999, 676.188 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+shape = SubResource( 1 )
+
+[node name="platforms" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Platform" type="StaticBody2D" parent="platforms"]
+position = Vector2( -483.336, 143.862 )
+
+[node name="platform" type="Sprite" parent="platforms/Platform"]
+position = Vector2( 689.48, 364.517 )
+scale = Vector2( 0.631678, 1 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/Platform"]
+shape = SubResource( 2 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform2" type="StaticBody2D" parent="platforms"]
+position = Vector2( -214.923, 3.90031 )
+
+[node name="platform" type="Sprite" parent="platforms/Platform2"]
+position = Vector2( 689.48, 364.517 )
+scale = Vector2( 0.631678, 1 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/Platform2"]
+shape = SubResource( 2 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform3" type="StaticBody2D" parent="platforms"]
+position = Vector2( 79.371, -69.2235 )
+
+[node name="platform" type="Sprite" parent="platforms/Platform3"]
+position = Vector2( 689.48, 364.517 )
+scale = Vector2( 0.631678, 1 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/Platform3"]
+shape = SubResource( 2 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="fg" type="Sprite" parent="ParallaxBackground2"]
+position = Vector2( 536.02, 295.618 )
+scale = Vector2( 0.998442, 0.641046 )
+texture = ExtResource( 6 )
+
+[node name="tree" type="Sprite" parent="."]
+position = Vector2( 895.467, 557.355 )
+scale = Vector2( 0.556267, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="grass" type="Sprite" parent="."]
+position = Vector2( 69.2322, 676.933 )
+scale = Vector2( 0.361496, 0.419206 )
+texture = ExtResource( 8 )
+
+[node name="grass2" type="Sprite" parent="."]
+position = Vector2( 1121.86, 661.421 )
+scale = Vector2( 0.361496, 0.419206 )
+texture = ExtResource( 8 )
+
+[node name="grass3" type="Sprite" parent="."]
+position = Vector2( 1429.89, 665.853 )
+scale = Vector2( 0.361496, 0.419206 )
+texture = ExtResource( 8 )
+
+[node name="grass4" type="Sprite" parent="."]
+position = Vector2( 574.494, 663.637 )
+scale = Vector2( 0.361496, 0.419206 )
+texture = ExtResource( 8 )
+
+[node name="grass5" type="Sprite" parent="."]
+position = Vector2( 1689.17, 637.044 )
+scale = Vector2( 0.361496, 0.419206 )
+texture = ExtResource( 8 )
+
+[node name="grass6" type="Sprite" parent="."]
+position = Vector2( 2019.36, 645.908 )
+scale = Vector2( 0.361496, 0.419206 )
+texture = ExtResource( 8 )
+
+[node name="grass7" type="Sprite" parent="."]
+position = Vector2( 2340.69, 645.908 )
+scale = Vector2( 0.361496, 0.419206 )
+texture = ExtResource( 8 )
+

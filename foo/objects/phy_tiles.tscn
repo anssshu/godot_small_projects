@@ -1,0 +1,175 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://assets/Tiles/platformPack_tile002.png" type="Texture" id=1]
+[ext_resource path="res://assets/Tiles/platformPack_tile003.png" type="Texture" id=2]
+[ext_resource path="res://assets/Tiles/platformPack_tile013.png" type="Texture" id=3]
+[ext_resource path="res://assets/Tiles/platformPack_tile014.png" type="Texture" id=4]
+[ext_resource path="res://assets/Tiles/platformPack_tile015.png" type="Texture" id=5]
+[ext_resource path="res://assets/Tiles/platformPack_tile025.png" type="Texture" id=6]
+[ext_resource path="res://assets/Tiles/platformPack_tile026.png" type="Texture" id=7]
+[ext_resource path="res://assets/Tiles/platformPack_tile027.png" type="Texture" id=8]
+[ext_resource path="res://assets/Tiles/platformPack_tile031.png" type="Texture" id=9]
+[ext_resource path="res://assets/Tiles/platformPack_tile032.png" type="Texture" id=10]
+[ext_resource path="res://assets/Tiles/platformPack_tile033.png" type="Texture" id=11]
+[ext_resource path="res://assets/Tiles/platformPack_tile001.png" type="Texture" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 32, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 32, 10 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 32, 10 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 32, 10 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 32, 10 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 32, 10 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 32, 32 )
+
+[node name="node2d" type="Node2D"]
+position = Vector2( 52.7997, 121.676 )
+
+[node name="platformPack_tile002" type="Sprite" parent="."]
+position = Vector2( 82.7136, 0.0810623 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platformPack_tile002"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platformPack_tile002/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="platformPack_tile003" type="Sprite" parent="."]
+position = Vector2( 172.484, 1.66992 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platformPack_tile003"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platformPack_tile003/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="platformPack_tile013" type="Sprite" parent="."]
+position = Vector2( 263.049, 2.86156 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platformPack_tile013"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platformPack_tile013/StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="platformPack_tile014" type="Sprite" parent="."]
+position = Vector2( -2.68757, 91.8377 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platformPack_tile014"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platformPack_tile014/StaticBody2D"]
+shape = SubResource( 4 )
+
+[node name="platformPack_tile015" type="Sprite" parent="."]
+position = Vector2( 82.7136, 92.6321 )
+texture = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platformPack_tile015"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platformPack_tile015/StaticBody2D"]
+shape = SubResource( 5 )
+
+[node name="platformPack_tile025" type="Sprite" parent="."]
+position = Vector2( 171.69, 91.0433 )
+texture = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platformPack_tile025"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platformPack_tile025/StaticBody2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 6 )
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="platformPack_tile026" type="Sprite" parent="."]
+position = Vector2( 263.049, 92.6321 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platformPack_tile026"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platformPack_tile026/StaticBody2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 7 )
+one_way_collision = true
+
+[node name="platformPack_tile027" type="Sprite" parent="."]
+position = Vector2( 350.039, 6.83372 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platformPack_tile027"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platformPack_tile027/StaticBody2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 8 )
+one_way_collision = true
+
+[node name="platformPack_tile031" type="Sprite" parent="."]
+position = Vector2( 350.834, 62.841 )
+texture = ExtResource( 9 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platformPack_tile031"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platformPack_tile031/StaticBody2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 9 )
+one_way_collision = true
+
+[node name="platformPack_tile032" type="Sprite" parent="."]
+position = Vector2( 354.409, 153.803 )
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platformPack_tile032"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platformPack_tile032/StaticBody2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 10 )
+one_way_collision = true
+
+[node name="platformPack_tile033" type="Sprite" parent="."]
+position = Vector2( 172.881, 154.995 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platformPack_tile033"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platformPack_tile033/StaticBody2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 11 )
+one_way_collision = true
+
+[node name="platformPack_tile001" type="Sprite" parent="."]
+position = Vector2( -2.68757, 1.27271 )
+texture = ExtResource( 12 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platformPack_tile001"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platformPack_tile001/StaticBody2D"]
+shape = SubResource( 12 )
+
