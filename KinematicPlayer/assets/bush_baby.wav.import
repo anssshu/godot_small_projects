@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bush_baby.wav-d62b9df84e33f6ca7bfc8d3c0534af1b.sample"
+
+[deps]
+
+source_file="res://assets/bush_baby.wav"
+dest_files=[ "res://.import/bush_baby.wav-d62b9df84e33f6ca7bfc8d3c0534af1b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

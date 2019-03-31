@@ -40,7 +40,7 @@ func _ready():
 
 #-----------------------------------------update object logic on each frame-------------------------------------	
 func _integrate_forces(state):
-	print(on_ground)
+	
 	# 1 calculate  the collision normal 
 	self.calculate_collision_normal(state)
 	

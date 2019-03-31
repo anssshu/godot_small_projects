@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/keys.gd" type="Script" id=1]
+[ext_resource path="res://assets/key.png" type="Texture" id=2]
+
+[node name="keys" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -21.1986, -6.3772, -15.3588, -13.5392, -5.00151, -13.429, 1.1688, -6.59757, 18.5779, -5.82628, 22.3241, 0.233841, 19.9001, 5.85322, 19.9001, 14.8883, 3.81321, 14.9985, -12.6042, 15.329, -21.4189, 6.62451 )
+

@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://objects/healthbar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/pickupbar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/keysbar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/pause_btn.png" type="Texture" id=4]
+[ext_resource path="res://assets/pause_btn2.png" type="Texture" id=5]
+[ext_resource path="res://src/pause_btn.gd" type="Script" id=6]
+[ext_resource path="res://scenes/pause.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/life.gd" type="Script" id=8]
+[ext_resource path="res://assets/heart.png" type="Texture" id=9]
+[ext_resource path="res://src/gameover.gd" type="Script" id=10]
+[ext_resource path="res://assets/go.png" type="Texture" id=11]
+[ext_resource path="res://assets/arrow.png" type="Texture" id=12]
+
+[node name="hud" type="ParallaxBackground"]
+layer = 8
+
+[node name="healthbar" parent="." instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 265.713, 26.2846 )
+
+[node name="pickupbar" parent="." instance=ExtResource( 2 )]
+position = Vector2( 725.997, 24.6479 )
+
+[node name="keysbar" parent="." instance=ExtResource( 3 )]
+position = Vector2( 933.455, 23.8965 )
+
+[node name="pause_btn" type="TextureButton" parent="."]
+margin_left = 3.08118
+margin_top = 496.181
+margin_right = 103.081
+margin_bottom = 594.181
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="pause" parent="." instance=ExtResource( 7 )]
+visible = false
+
+[node name="life" type="Node2D" parent="."]
+editor/display_folded = true
+script = ExtResource( 8 )
+
+[node name="heart" type="Sprite" parent="life"]
+position = Vector2( 109.165, 31.9674 )
+texture = ExtResource( 9 )
+
+[node name="heart2" type="Sprite" parent="life"]
+position = Vector2( 76.227, 30.8863 )
+texture = ExtResource( 9 )
+
+[node name="heart3" type="Sprite" parent="life"]
+position = Vector2( 45.5679, 30.1655 )
+texture = ExtResource( 9 )
+
+[node name="gameover" type="Node2D" parent="."]
+pause_mode = 2
+visible = false
+script = ExtResource( 10 )
+
+[node name="go" type="Sprite" parent="gameover"]
+position = Vector2( 494.874, 357.385 )
+texture = ExtResource( 11 )
+
+[node name="restart" type="TextureButton" parent="gameover"]
+margin_left = 352.761
+margin_top = 343.903
+margin_right = 384.761
+margin_bottom = 383.903
+texture_normal = ExtResource( 12 )
+
+[node name="menu" type="TextureButton" parent="gameover"]
+visible = false
+margin_left = 357.405
+margin_top = 415.553
+margin_right = 389.405
+margin_bottom = 455.553
+texture_normal = ExtResource( 12 )
+

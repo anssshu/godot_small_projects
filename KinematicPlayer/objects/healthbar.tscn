@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/healthbar_back.png" type="Texture" id=1]
+[ext_resource path="res://assets/healthbar_over.png" type="Texture" id=2]
+[ext_resource path="res://assets/healthbar_progress.png" type="Texture" id=3]
+
+[node name="healthbar" type="Node2D"]
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_right = 286.0
+margin_bottom = 49.0
+value = 60.0
+texture_under = ExtResource( 1 )
+texture_over = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+

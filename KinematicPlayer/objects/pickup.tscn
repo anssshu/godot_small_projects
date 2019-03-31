@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/pickup.gd" type="Script" id=1]
+[ext_resource path="res://assets/platformPack_item007.png" type="Texture" id=2]
+
+[node name="pickup" type="Area2D"]
+position = Vector2( 172.492, 1.57653 )
+script = ExtResource( 1 )
+
+[node name="sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -1.91428, 14.3811, -17.92, -1.74054, -17.92, -5.10405, -8.75729, -14.4987, 9.45209, -14.3827, 18.2668, -5.68397, 18.7308, -1.62455, 3.65292, 14.2652 )
+
