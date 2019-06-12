@@ -1,6 +1,6 @@
 extends Control
 
-var g =2
+var g =3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +11,7 @@ func _ready():
 	$settings.connect("button_down",self,"on_settings")
 	$exit.connect("button_down",self,"on_exit")
 func _process(delta):
+	
 	if Input.is_action_just_pressed("ui_up") and (g > -1 and g < 3):
 		g = g+1	
 	if Input.is_action_just_pressed("ui_down") and (g > 0 and g < 4):

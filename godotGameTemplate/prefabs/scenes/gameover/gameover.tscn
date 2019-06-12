@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://prefabs/scenes/gameover/gameover.gd" type="Script" id=1]
+[ext_resource path="res://prefabs/scenes/gameover/assets/go.png" type="Texture" id=2]
+[ext_resource path="res://prefabs/scenes/gameover/assets/arrow.png" type="Texture" id=3]
+
+[node name="gameover" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="go" type="Sprite" parent="."]
+position = Vector2( 494.874, 357.385 )
+texture = ExtResource( 2 )
+
+[node name="restart" type="TextureButton" parent="."]
+margin_left = 352.761
+margin_top = 343.903
+margin_right = 384.761
+margin_bottom = 383.903
+texture_normal = ExtResource( 3 )
+
+[node name="menu" type="TextureButton" parent="."]
+visible = false
+margin_left = 357.405
+margin_top = 415.553
+margin_right = 389.405
+margin_bottom = 455.553
+texture_normal = ExtResource( 3 )
+

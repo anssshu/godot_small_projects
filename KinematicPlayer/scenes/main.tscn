@@ -23,7 +23,6 @@ __meta__ = {
 }
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 
 [node name="backgroundColorGrass" type="Sprite" parent="ParallaxBackground"]
 modulate = Color( 0.192157, 0.0196078, 0.0196078, 1 )

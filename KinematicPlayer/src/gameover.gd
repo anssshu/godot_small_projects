@@ -11,6 +11,7 @@ func _ready():
 	$restart.grab_focus()
 	
 func _process(delta):
+	#game over logic
 	if globals.life == 0 :
 		self.visible = true
 		get_tree().paused = true
