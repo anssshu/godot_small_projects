@@ -46,7 +46,7 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x =  WALK_SPEED
 	else:
-        velocity.x = 0
+		velocity.x = 0
 		
 			
 	if Input.is_action_just_pressed("ui_select") and self.on_ground:

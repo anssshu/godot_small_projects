@@ -41,7 +41,6 @@ scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 4 )
 
 [node name="pickups" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="pickup" parent="pickups" instance=ExtResource( 5 )]
 position = Vector2( 1127.48, 205.634 )
@@ -85,7 +84,6 @@ position = Vector2( 4551.44, 1041.75 )
 [node name="hud" parent="." instance=ExtResource( 7 )]
 
 [node name="keys" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="keys" parent="keys" instance=ExtResource( 8 )]
 position = Vector2( 3444.51, -222.222 )
@@ -97,7 +95,6 @@ position = Vector2( 6472.19, 330.296 )
 position = Vector2( 6421.72, 1530.78 )
 
 [node name="gate" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 36.3535, 477.14 )
 script = ExtResource( 9 )
 
@@ -117,4 +114,3 @@ shape = SubResource( 1 )
 
 [node name="croco" parent="." instance=ExtResource( 12 )]
 position = Vector2( 375.092, -46.4624 )
-
