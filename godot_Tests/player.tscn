@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://baby_spritesheet.png" type="Texture" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.5
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 70.0
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "jump"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 9, 10, 11, 12, 13, 14, 15, 16, 17 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "run"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 18, 19, 20, 21, 22, 23, 24, 25, 26 ]
+}
+
+[node name="player" type="RigidBody2D"]
+position = Vector2( 391.769, 228.629 )
+mode = 2
+physics_material_override = SubResource( 1 )
+gravity_scale = 40.0
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+accn = 200
+
+[node name="sprite" type="Sprite" parent="."]
+modulate = Color( 0.988235, 0.988235, 0.988235, 1 )
+self_modulate = Color( 0.294118, 0.294118, 0.32549, 1 )
+material = SubResource( 2 )
+position = Vector2( -5.33707, 64.2264 )
+texture = ExtResource( 2 )
+offset = Vector2( -1.29715, -89.4364 )
+vframes = 3
+hframes = 9
+frame = 25
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 90 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+playback_speed = 1.5
+anims/idle = SubResource( 4 )
+anims/jump = SubResource( 5 )
+anims/run = SubResource( 6 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+smoothing_speed = 10.0

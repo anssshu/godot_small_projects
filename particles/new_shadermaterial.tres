@@ -1,0 +1,33 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://PNG/Rotated/spark_06_rotated.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item ;
+uniform sampler2D img ;
+
+
+void fragment(){
+	vec2 uv ;
+	vec2 uv2 ;
+	vec4 color ;
+	uv =  vec2(UV.x,0.1*UV.y*cos(TIME*1.0*atan(TIME*10.0))*sin(UV.x*3.141)+UV.y+0.2) ;
+	//uv2 = vec2(abs(cos(TIME*4.0-UV.x*2.0)),UV.y) ;
+	COLOR = texture( img , uv) ;
+	
+	if (COLOR.r < 0.4) COLOR.a = 0.0 ;
+	else COLOR.a = 0.5 ;
+	
+	color = COLOR ;
+	color.r = abs(1.0*sin(TIME*10.0));
+	
+	//color.a = abs(1.0*cos(TIME*5.0));
+	
+	COLOR = color ;
+	
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/img = ExtResource( 1 )
+

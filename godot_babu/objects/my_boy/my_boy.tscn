@@ -1,0 +1,203 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://objects/my_boy/scripts/hit.gd" type="Script" id=1]
+[ext_resource path="res://objects/my_boy/scripts/die.gd" type="Script" id=2]
+[ext_resource path="res://objects/my_boy/scripts/swim.gd" type="Script" id=3]
+[ext_resource path="res://objects/my_boy/scripts/float.gd" type="Script" id=4]
+[ext_resource path="res://objects/my_boy/scripts/player.gd" type="Script" id=5]
+[ext_resource path="res://objects/my_boy/scripts/camera.gd" type="Script" id=6]
+[ext_resource path="res://objects/my_boy/scripts/wall_jump.gd" type="Script" id=7]
+[ext_resource path="res://objects/my_boy/scripts/wall_slide.gd" type="Script" id=8]
+[ext_resource path="res://objects/my_boy/scripts/template.gd" type="Script" id=9]
+[ext_resource path="res://objects/my_boy/scripts/fall.gd" type="Script" id=10]
+[ext_resource path="res://objects/my_boy/scripts/fsm.gd" type="Script" id=11]
+[ext_resource path="res://objects/my_boy/scripts/attack.gd" type="Script" id=12]
+[ext_resource path="res://objects/my_boy/scripts/controls.gd" type="Script" id=13]
+[ext_resource path="res://objects/my_boy/scripts/idle.gd" type="Script" id=14]
+[ext_resource path="res://objects/my_boy/scripts/jump.gd" type="Script" id=15]
+[ext_resource path="res://objects/my_boy/scripts/duck.gd" type="Script" id=16]
+[ext_resource path="res://objects/my_boy/scripts/updater.gd" type="Script" id=17]
+[ext_resource path="res://objects/my_boy/scripts/slide.gd" type="Script" id=18]
+[ext_resource path="res://objects/my_boy/scripts/motion.gd" type="Script" id=19]
+[ext_resource path="res://objects/my_boy/scripts/collision.gd" type="Script" id=20]
+[ext_resource path="res://objects/my_boy/asset/bubble.png" type="Texture" id=21]
+[ext_resource path="res://objects/my_boy/scripts/run.gd" type="Script" id=22]
+[ext_resource path="res://objects/my_boy/asset/boy.png" type="Texture" id=23]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40, 75 )
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+render_mode unshaded;
+ 
+uniform float width : hint_range(0.0, 16.0);
+uniform vec4 outline_color : hint_color;
+ 
+void fragment()
+{
+    vec2 size = vec2(width) / vec2(textureSize(TEXTURE, 0));
+   
+    vec4 sprite_color = texture(TEXTURE, UV);
+   
+    float alpha = sprite_color.a;
+    alpha += texture(TEXTURE, UV + vec2(0.0, -size.y)).a;
+    alpha += texture(TEXTURE, UV + vec2(size.x, -size.y)).a;
+    alpha += texture(TEXTURE, UV + vec2(size.x, 0.0)).a;
+    alpha += texture(TEXTURE, UV + vec2(size.x, size.y)).a;
+    alpha += texture(TEXTURE, UV + vec2(0.0, size.y)).a;
+    alpha += texture(TEXTURE, UV + vec2(-size.x, size.y)).a;
+    alpha += texture(TEXTURE, UV + vec2(-size.x, 0.0)).a;
+    alpha += texture(TEXTURE, UV + vec2(-size.x, -size.y)).a;
+   
+    vec3 final_color = mix(outline_color.rgb, sprite_color.rgb, sprite_color.a);
+    COLOR = vec4(final_color, clamp(alpha, 0.0, 1.0));
+}"
+custom_defines = ""
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/width = 3.0
+shader_param/outline_color = null
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0.0133929, 0.635568 ), 0.0, 0.0, 0, 0, Vector2( 0.995536, 1 ), 0.0, 0.0, 0, 0 ]
+
+[node name="my_boy" type="KinematicBody2D"]
+script = ExtResource( 5 )
+
+[node name="positions" type="Node" parent="."]
+
+[node name="head_marker" type="Position2D" parent="positions"]
+position = Vector2( 0, -75 )
+
+[node name="torso_marker" type="Position2D" parent="positions"]
+position = Vector2( 1, -33 )
+
+[node name="collider" type="CollisionShape2D" parent="."]
+position = Vector2( -2, -75 )
+shape = SubResource( 1 )
+
+[node name="sprite" type="Sprite" parent="."]
+material = SubResource( 3 )
+position = Vector2( -1.52273, -0.823898 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 23 )
+centered = false
+offset = Vector2( -126.416, -326.258 )
+
+[node name="bubble" type="CPUParticles2D" parent="sprite"]
+position = Vector2( 27, -71 )
+rotation = -1.73311
+scale = Vector2( 0.6, 0.6 )
+emitting = false
+amount = 2
+lifetime = 2.0
+speed_scale = 3.21
+texture = ExtResource( 21 )
+emission_shape = 3
+emission_points = PoolVector2Array(  )
+emission_colors = PoolColorArray(  )
+spread = 18.62
+gravity = Vector2( 0, 0 )
+initial_velocity = 80.0
+scale_amount_curve = SubResource( 4 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+
+[node name="fsm" type="Node" parent="."]
+script = ExtResource( 11 )
+
+[node name="idle" type="Node" parent="fsm"]
+script = ExtResource( 14 )
+
+[node name="run" type="Node" parent="fsm"]
+script = ExtResource( 22 )
+
+[node name="slide" type="Node" parent="fsm"]
+script = ExtResource( 18 )
+
+[node name="duck" type="Node" parent="fsm"]
+script = ExtResource( 16 )
+
+[node name="jump" type="Node" parent="fsm"]
+script = ExtResource( 15 )
+
+[node name="fall" type="Node" parent="fsm"]
+script = ExtResource( 10 )
+
+[node name="attack" type="Node" parent="fsm"]
+script = ExtResource( 12 )
+
+[node name="wall_jump" type="Node" parent="fsm"]
+script = ExtResource( 7 )
+
+[node name="wall_slide" type="Node" parent="fsm"]
+script = ExtResource( 8 )
+
+[node name="wall_stick_timer" type="Timer" parent="fsm/wall_slide"]
+wait_time = 0.6
+one_shot = true
+
+[node name="float" type="Node" parent="fsm"]
+script = ExtResource( 4 )
+
+[node name="swim" type="Node" parent="fsm"]
+script = ExtResource( 3 )
+
+[node name="die" type="Node" parent="fsm"]
+script = ExtResource( 2 )
+
+[node name="hit" type="Node" parent="fsm"]
+script = ExtResource( 1 )
+
+[node name="hit_timer" type="Timer" parent="fsm/hit"]
+one_shot = true
+
+[node name="template" type="Node" parent="fsm"]
+script = ExtResource( 9 )
+
+[node name="controls" type="Node" parent="."]
+script = ExtResource( 13 )
+
+[node name="motion" type="Node" parent="."]
+script = ExtResource( 19 )
+
+[node name="updater" type="Node" parent="."]
+script = ExtResource( 17 )
+
+[node name="collision" type="Node" parent="."]
+script = ExtResource( 20 )
+
+[node name="camera" type="Camera2D" parent="."]
+limit_left = 0
+limit_bottom = 600
+smoothing_enabled = true
+script = ExtResource( 6 )
+
+[node name="label" type="Label" parent="."]
+margin_left = -30.0
+margin_top = -171.5
+margin_right = 27.0
+margin_bottom = -147.5
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left" type="RayCast2D" parent="."]
+position = Vector2( -39, -56.75 )
+enabled = true
+cast_to = Vector2( -10, 0 )
+
+[node name="right" type="RayCast2D" parent="."]
+position = Vector2( 34.75, -59.75 )
+enabled = true
+cast_to = Vector2( 10, 0 )
+
+[node name="down" type="RayCast2D" parent="."]
+position = Vector2( -1, -5.25 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+[connection signal="timeout" from="fsm/wall_slide/wall_stick_timer" to="fsm/wall_slide" method="_on_wall_slide_timer_timeout"]
+[connection signal="timeout" from="fsm/hit/hit_timer" to="fsm/hit" method="_on_hit_timer_timeout"]

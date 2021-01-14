@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fire.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+flags_unshaded = true
+params_blend_mode = 1
+params_depth_draw_mode = 2
+params_billboard_mode = 3
+params_grow = true
+params_grow_amount = 0.0
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 1, 0, 0.141176, 1 )
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=2]
+
+[sub_resource type="Curve" id=3]
+max_value = 100.0
+_data = [ Vector2( 0.0823653, 79.81 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=4]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0.00227094, 157.608 ), 0.0, 0.0, 0, 0, Vector2( 0.986287, 265.32 ), 0.0, 0.0, 0, 0 ]
+
+[node name="Spatial" type="Spatial"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0470657, 0, -0.0737381 )
+material_override = SubResource( 1 )
+amount = 20
+randomness = 1.0
+mesh = SubResource( 2 )
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+spread = 1.0
+gravity = Vector3( 0, 10, 0 )
+initial_velocity = 10.0
+angular_velocity = 0.0
+damping_curve = SubResource( 3 )
+angle = 360.0
+angle_random = 1.0
+angle_curve = SubResource( 4 )
+scale_amount = 3.0
+

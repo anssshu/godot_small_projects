@@ -1,0 +1,157 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://kim.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("body:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -6.24667, -94.5725 ), Vector2( -6.24667, -97.9862 ), Vector2( -6.24667, -94.5725 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "run"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("leg_r:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 83.8498, -62.3641, 83.8498 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("leg_l:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -53.2137, 93.3649, -53.2137 ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("body:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -6.247, -0.25, 0, 0.25, 0, -6.247, -0.25, 0, 0.25, 0, -6.247, -0.25, 0, 0.25, 0, -6.247, -0.25, 0, 0.25, 0, -6.247, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 0.5, 0.8, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("body:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -100, -0.25, 0, 0.25, 0, -96, -0.25, 0, 0.25, 0, -100, -0.25, 0, 0.25, 0, -96, -0.25, 0, 0.25, 0, -100, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 0.5, 0.8, 1 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/hand_l:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 0.501, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -24.2505, 102.415, 102.415, -24.2505 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/hand_r:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 44.6709, -116.737, 44.6709 ]
+}
+
+[node name="kim" type="Node2D"]
+position = Vector2( 511.842, 580 )
+
+[node name="body" type="Sprite" parent="."]
+position = Vector2( -6.247, -99.7743 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 145.339, 171.341, 50.2248, 102.841 )
+region_filter_clip = true
+
+[node name="head" type="Sprite" parent="body"]
+position = Vector2( 1.43198, -71.5988 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 114.248, 15.8829, 133.933, 112.408 )
+region_filter_clip = true
+
+[node name="hand_l" type="Sprite" parent="body"]
+position = Vector2( 15.2236, -22.4806 )
+rotation = 1.42508
+scale = Vector2( 1.02237, 1.01665 )
+z_index = -1
+texture = ExtResource( 1 )
+offset = Vector2( 22.2265, 21.4081 )
+region_enabled = true
+region_rect = Rect2( 37.7148, 51.7578, 78.9247, 69.358 )
+region_filter_clip = true
+
+[node name="hand_r" type="Sprite" parent="body"]
+position = Vector2( -10.6233, -14.6778 )
+rotation = -1.57095
+scale = Vector2( 1.02237, 1.01665 )
+z_index = -1
+texture = ExtResource( 1 )
+offset = Vector2( -9.91849, 19.3672 )
+region_enabled = true
+region_rect = Rect2( 59.2397, 166.557, 66.9663, 69.358 )
+region_filter_clip = true
+
+[node name="leg_l" type="Sprite" parent="."]
+position = Vector2( 9.2998, -62.6598 )
+rotation = 1.20588
+scale = Vector2( 1.02237, 1.01665 )
+z_index = -1
+texture = ExtResource( 1 )
+offset = Vector2( 5.61046, 21.4601 )
+region_enabled = true
+region_rect = Rect2( 233.831, 171.341, 64.5747, 86.0996 )
+region_filter_clip = true
+
+[node name="leg_r" type="Sprite" parent="."]
+position = Vector2( -13.6118, -57.8762 )
+rotation = -0.665867
+scale = Vector2( 1.02237, 1.01665 )
+texture = ExtResource( 1 )
+offset = Vector2( 7.01106, 24.2771 )
+region_enabled = true
+region_rect = Rect2( 233.831, 171.341, 64.5747, 86.0996 )
+region_filter_clip = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "run"
+playback_speed = 2.0
+anims/idle = SubResource( 1 )
+anims/run = SubResource( 2 )
