@@ -8,7 +8,6 @@ others
 
 
 structure of a scene
-
 ui
 map
 objects

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://maps/map1/map1_bg.png" type="Texture" id=1]
+
+[node name="MAP1" type="Node2D"]
+
+[node name="map1_bg" type="Sprite" parent="."]
+position = Vector2( 441, 292 )
+texture = ExtResource( 1 )
